@@ -1,0 +1,25 @@
+{
+    "python.defaultInterpreterPath": "C:\\Program Files\\PostgreSQL\\18\\pgAdmin 4\\python\\python.exe",
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}",
+        "${workspaceFolder}/ai-service",
+        "${workspaceFolder}/ai-service/app",
+        "C:\\Users\\kalir\\AppData\\Roaming\\Python\\Python313\\site-packages"
+    ],
+    "python.autoComplete.extraPaths": [
+        "${workspaceFolder}",
+        "${workspaceFolder}/ai-service",
+        "${workspaceFolder}/ai-service/app",
+        "C:\\Users\\kalir\\AppData\\Roaming\\Python\\Python313\\site-packages"
+    ],
+    "python.analysis.typeCheckingMode": "off",
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportMissingImports": "none",
+        "reportMissingTypeStubs": "none",
+        "reportMissingModuleSource": "none",
+        "reportGeneralTypeIssues": "none",
+        "reportOptionalMemberAccess": "none",
+        "reportUnusedImport": "none",
+        "reportPrivateUsage": "none"
+    }
+}

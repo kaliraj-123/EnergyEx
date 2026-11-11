@@ -1,0 +1,65 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: energyex-backend
+  profiles:
+    active: default
+  datasource:
+    url: jdbc:h2:file:./data/energyexdb;MODE=MySQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH
+    driverClassName: org.h2.Driver
+    username: sa
+    password: 
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+# EnergyEx System Configuration
+energyex:
+  system-mode: DEMO # Can be DEMO or LIVE_IOT
+  simulation:
+    enabled: true
+    interval-ms: 3000
+    telemetry-label: "DEMO DATA"
+  tariff:
+    default-rate-per-kwh: 7.50 # Indian Rupees (₹) per kWh
+    currency-symbol: "₹"
+  ai-service:
+    base-url: "http://localhost:8000"
+    timeout-ms: 4000
+  iot:
+    device-auth-token: "ENERGYEX_IOT_SECURE_TOKEN_2026"
+    allowed-voltage-min: 180.0
+    allowed-voltage-max: 260.0
+    high-power-threshold-w: 2500.0
+
+logging:
+  level:
+    com.energyex: INFO
+    org.springframework.web: INFO
+
+---
+spring:
+  config:
+    activate:
+      on-profile: mysql
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DATABASE:energyex_db}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Kolkata&createDatabaseIfNotExist=true
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:root}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false

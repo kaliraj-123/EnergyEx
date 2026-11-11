@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EnergyEx</string>
+    <string name="app_tagline">Smart Electricity Monitoring &amp; AI Prediction</string>
+    
+    <!-- Navigation Items -->
+    <string name="nav_dashboard">Dashboard</string>
+    <string name="nav_appliances">Appliances</string>
+    <string name="nav_live_monitor">Live Monitoring</string>
+    <string name="nav_history">History</string>
+    <string name="nav_billing">Bill Estimation</string>
+    <string name="nav_prediction">AI Forecast</string>
+    <string name="nav_control">Remote Control</string>
+    <string name="nav_schedules">Scheduling</string>
+    <string name="nav_alerts">Alerts</string>
+    <string name="nav_iot_setup">IoT &amp; Wi-Fi</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Mode Labels -->
+    <string name="mode_demo_badge">DEMO MODE (SIMULATED DATA)</string>
+    <string name="mode_live_badge">LIVE IoT MODE (ESP32 PZEM-004T)</string>
+    
+    <!-- Currency & Units -->
+    <string name="currency_symbol">₹</string>
+    <string name="unit_kwh">kWh</string>
+    <string name="unit_watts">W</string>
+    <string name="unit_volts">V</string>
+    <string name="unit_amps">A</string>
+    <string name="unit_hertz">Hz</string>
+    <string name="unit_pf">PF</string>
+</resources>
+

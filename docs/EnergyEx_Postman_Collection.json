@@ -1,0 +1,306 @@
+{
+  "info": {
+    "name": "EnergyEx Smart Electricity Monitoring API",
+    "description": "Comprehensive REST API Collection for EnergyEx: IoT Smart Electricity Monitoring, Prediction, and Relay Control System.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080/api/v1",
+      "type": "string"
+    },
+    {
+      "key": "aiUrl",
+      "value": "http://localhost:8000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. System & Mode Management",
+      "item": [
+        {
+          "name": "Get System Mode & Health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/system/status",
+              "host": ["{{baseUrl}}"],
+              "path": ["system", "status"]
+            }
+          }
+        },
+        {
+          "name": "Switch Mode (LIVE vs DEMO)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mode\": \"LIVE\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/system/mode",
+              "host": ["{{baseUrl}}"],
+              "path": ["system", "mode"]
+            }
+          }
+        },
+        {
+          "name": "First-Time User Setup",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Kaliraj M\",\n  \"tariffRate\": 7.50\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/system/setup",
+              "host": ["{{baseUrl}}"],
+              "path": ["system", "setup"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Dashboard & Analytics",
+      "item": [
+        {
+          "name": "Get Dashboard Summary",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/dashboard/summary",
+              "host": ["{{baseUrl}}"],
+              "path": ["dashboard", "summary"]
+            }
+          }
+        },
+        {
+          "name": "Get Bill Estimation (Tiered Slabs)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/billing/estimate",
+              "host": ["{{baseUrl}}"],
+              "path": ["billing", "estimate"]
+            }
+          }
+        },
+        {
+          "name": "Get Consumption History (Today)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/history?period=today",
+              "host": ["{{baseUrl}}"],
+              "path": ["history"],
+              "query": [
+                {
+                  "key": "period",
+                  "value": "today"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Appliance & Relay Actuation",
+      "item": [
+        {
+          "name": "List Monitored Appliances",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/appliances",
+              "host": ["{{baseUrl}}"],
+              "path": ["appliances"]
+            }
+          }
+        },
+        {
+          "name": "Toggle Appliance 1 (Living Room Light)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/appliances/1/toggle",
+              "host": ["{{baseUrl}}"],
+              "path": ["appliances", "1", "toggle"]
+            }
+          }
+        },
+        {
+          "name": "Toggle Appliance 2 (Ceiling Fan)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/appliances/2/toggle",
+              "host": ["{{baseUrl}}"],
+              "path": ["appliances", "2", "toggle"]
+            }
+          }
+        },
+        {
+          "name": "Toggle Appliance 4 (Kitchen Refrigerator)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/appliances/4/toggle",
+              "host": ["{{baseUrl}}"],
+              "path": ["appliances", "4", "toggle"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. IoT Hardware Telemetry & Commands",
+      "item": [
+        {
+          "name": "Push ESP32 Telemetry (Simulate Hardware Post)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"deviceId\": \"ESP32_ENERGYEX_01\",\n  \"authToken\": \"ENERGYEX_IOT_SECURE_TOKEN_2026\",\n  \"voltageV\": 231.4,\n  \"currentA\": 1.85,\n  \"powerWatts\": 415.2,\n  \"energyKwh\": 14.89,\n  \"frequencyHz\": 50.02,\n  \"powerFactor\": 0.94,\n  \"isSimulated\": false,\n  \"channelReadings\": [\n    {\n      \"channelNumber\": 1,\n      \"isOn\": true,\n      \"powerWatts\": 25.0,\n      \"currentA\": 0.11\n    },\n    {\n      \"channelNumber\": 2,\n      \"isOn\": true,\n      \"powerWatts\": 65.0,\n      \"currentA\": 0.31\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/iot/telemetry",
+              "host": ["{{baseUrl}}"],
+              "path": ["iot", "telemetry"]
+            }
+          }
+        },
+        {
+          "name": "Poll Pending Relay Commands (ESP32 Poll)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/iot/commands?deviceId=ESP32_ENERGYEX_01",
+              "host": ["{{baseUrl}}"],
+              "path": ["iot", "commands"],
+              "query": [
+                {
+                  "key": "deviceId",
+                  "value": "ESP32_ENERGYEX_01"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Acknowledge Command Execution",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"CONFIRMED\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/iot/commands/1/ack",
+              "host": ["{{baseUrl}}"],
+              "path": ["iot", "commands", "1", "ack"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. AI & Machine Learning Microservice",
+      "item": [
+        {
+          "name": "Get 7-Day Consumption Forecast (Random Forest)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{aiUrl}}/predict/daily?days=7&rate=7.50",
+              "host": ["{{aiUrl}}"],
+              "path": ["predict", "daily"],
+              "query": [
+                {
+                  "key": "days",
+                  "value": "7"
+                },
+                {
+                  "key": "rate",
+                  "value": "7.50"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Detect Electricity Consumption Anomalies (IQR / Z-Score)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"powerReadings\": [150.2, 148.5, 155.0, 160.1, 480.5, 152.0, 149.8],\n  \"thresholdZScore\": 2.0\n}"
+            },
+            "url": {
+              "raw": "{{aiUrl}}/anomaly/detect",
+              "host": ["{{aiUrl}}"],
+              "path": ["anomaly", "detect"]
+            }
+          }
+        },
+        {
+          "name": "Get Energy-Saving Recommendations",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{aiUrl}}/recommendations",
+              "host": ["{{aiUrl}}"],
+              "path": ["recommendations"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+

@@ -1,0 +1,26 @@
+[tool.pyrefly]
+search-path = [
+    ".",
+    "ai-service",
+    "ai-service/app",
+    "firmware"
+]
+
+site-packages-path = [
+    "C:/Users/kalir/AppData/Roaming/Python/Python313/site-packages",
+    "C:/Program Files/PostgreSQL/18/pgAdmin 4/python/Lib/site-packages"
+]
+
+python-interpreter-path = "C:/Program Files/PostgreSQL/18/pgAdmin 4/python/python.exe"
+
+[tool.pyrefly.errors]
+missing-import = "ignore"
+untyped-import = "ignore"
+unknown-attribute = "ignore"
+bad-assignment = "ignore"
+unused-ignore = "ignore"
+unused-import = "ignore"
+missing-attribute = "ignore"
+bad-argument-count = "ignore"
+bad-return = "ignore"
+

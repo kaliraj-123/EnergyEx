@@ -1,0 +1,32 @@
+server:
+  port: 8089
+
+spring:
+  application:
+    name: energyex-backend-test
+  datasource:
+    url: jdbc:h2:mem:energyexdb;MODE=MySQL;DB_CLOSE_DELAY=-1;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH
+    driverClassName: org.h2.Driver
+    username: sa
+    password: 
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+
+energyex:
+  system-mode: DEMO
+  simulation:
+    enabled: false
+  tariff:
+    default-rate-per-kwh: 7.50
+    currency-symbol: "₹"
+  ai-service:
+    base-url: "http://localhost:8000"
+    timeout-ms: 4000
+  iot:
+    device-auth-token: "ENERGYEX_IOT_SECURE_TOKEN_2026"
+    allowed-voltage-min: 180.0
+    allowed-voltage-max: 260.0
+    high-power-threshold-w: 2500.0

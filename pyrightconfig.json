@@ -1,0 +1,23 @@
+{
+  "include": [
+    ".",
+    "ai-service",
+    "firmware"
+  ],
+  "extraPaths": [
+    ".",
+    "ai-service",
+    "ai-service/app",
+    "C:/Users/kalir/AppData/Roaming/Python/Python313/site-packages",
+    "C:/Program Files/PostgreSQL/18/pgAdmin 4/python/Lib/site-packages"
+  ],
+  "reportMissingImports": "none",
+  "reportMissingTypeStubs": "none",
+  "reportMissingModuleSource": "none",
+  "reportUnusedImport": "none",
+  "reportAttributeAccessIssue": "none",
+  "reportUnknownMemberType": "none",
+  "reportGeneralTypeIssues": "none",
+  "reportPrivateUsage": "none",
+  "typeCheckingMode": "off"
+}
