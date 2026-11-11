@@ -8,7 +8,7 @@ echo.
 echo Target Repository: https://github.com/kaliraj-123/EnergyEx
 echo.
 echo [1/2] Ensuring remote is configured...
-git remote set-url origin https://github.com/kaliraj-123/EnergyEx.git
+git remote set-url origin https://kaliraj-123@github.com/kaliraj-123/EnergyEx.git
 git branch -M main
 
 echo.
@@ -33,3 +33,4 @@ if %errorlevel% neq 0 (
 )
 echo.
 pause
+
