@@ -12,8 +12,8 @@
 // 2. Spring Boot Backend Server Configuration
 // ==========================================
 // Replace with the local IP address of the computer running Spring Boot
-// (e.g. "http://192.168.1.100:8080")
-#define SERVER_HOST         "http://192.168.1.100:8080"
+// Your computer's current Wi-Fi IP:
+#define SERVER_HOST         "http://10.47.247.16:8080"
 #define TELEMETRY_ENDPOINT  "/api/v1/iot/telemetry"
 #define COMMANDS_ENDPOINT   "/api/v1/iot/commands"
 #define ACK_ENDPOINT        "/api/v1/iot/commands/"
